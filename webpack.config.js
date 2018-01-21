@@ -5,7 +5,7 @@ module.exports ={
     entry: './src/index.jsx',
     output: {
         path: `${__dirname}/public`,
-        filename: './bundle.js'
+        filename: './t4f.js'
     },
     devServer: {
         port: 8080,
@@ -18,7 +18,7 @@ module.exports ={
         }
     },
     plugins: [
-        new ExtractTextPlugin('app.css')
+        new ExtractTextPlugin('t4f.css')
     ],
     module: {
         loaders: [{
@@ -32,6 +32,9 @@ module.exports ={
         }, {
             test: /\.css$/,
             loader: ExtractTextPlugin.extract('style-loader', 'css-loader')
+        }, {
+            test: /\.woff|.woff2|.ttf|.eot|.svg*.*$/,
+            loader: 'file'
         }]
     }
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Router, Route, Redirect, hashHistory } from 'react-router';
+import { Router, Route, Redirect, hashHistory} from 'react-router';
 
 import Home from '../home/home';
 import PayEvent from '../pay-event/payEvent';
