@@ -27,13 +27,6 @@ class Content extends Component {
 
     render() {
         const styles = {
-            container: {
-                display: "flex"
-            },
-            containerImg: {
-                flexGrow: "1",
-                maxWidth: "50%"
-            },
             containerBand: {
                 flexGrow: "1",
                 maxWidth: "50%"
@@ -46,21 +39,20 @@ class Content extends Component {
             }
         }
 
-        const { container, containerImg, containerBand, rightNow } = styles;
+        const { container, containerBand, rightNow } = styles;
 
         return (
             <div>
                 {this.state.events.map((item) => {
                     return (
-                        <div style={container} key={item.name} className="jumbotron">
-                            <div style={containerImg}>
+                        <div style={container} key={item.name} className="row jumbotron center-block">
+                            <div className="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                                 <img
                                     src={item.cover}
                                     alt={item.name}
-                                    style={{ maxWidth: "90%" }}
-                                    className="thumbnail" />
-                            </div>
-                            <div>
+                                    className="img-thumbnail img-responsive center-block" />
+                            </div>  
+                            <div className="row col-xs-12 col-sm-6 col-md-6 col-lg-6 text-right">
                                 <h1>{item.name}</h1>
                                 <p>Data: {reactUtils.transformDate(item.date)}</p>
                                 <p>Local: {item.localEvent} / Horário: {item.hour}</p>
