@@ -19,7 +19,7 @@ class Content extends Component {
     componentWillMount() {
         const URL = Config.production.base_api;
         axios.get(URL).then(response => {
-            this.setState({ events : response.data.events });
+            this.setState({ events: response.data.events });
         }, error => {
             console.error('request error', error);
         });
@@ -50,27 +50,27 @@ class Content extends Component {
 
         return (
             <div>
-                { this.state.events.map((item) => {
+                {this.state.events.map((item) => {
                     return (
                         <div style={container} key={item.name} className="jumbotron">
                             <div style={containerImg}>
-                                <img 
-                                    src={item.cover} 
-                                    alt={item.name} 
-                                    style={ { maxWidth: "90%" } } 
+                                <img
+                                    src={item.cover}
+                                    alt={item.name}
+                                    style={{ maxWidth: "90%" }}
                                     className="thumbnail" />
                             </div>
                             <div>
-                                <h1>{ item.name }</h1>
-                                <p>Data: { reactUtils.transformDate(item.date) }</p>
-                                <p>Local: { item.localEvent } / Horário: { item.hour }</p>
+                                <h1>{item.name}</h1>
+                                <p>Data: {reactUtils.transformDate(item.date)}</p>
+                                <p>Local: {item.localEvent} / Horário: {item.hour}</p>
                                 <p style={rightNow}>Corra e garanta já o seu ingresso!</p>
-                                <a 
+                                <a
                                     className="btn btn-warning dropdown-toggle"
-                                    href="#/payEvent" 
-                                    onClick={ () => { this.props.changeValue(item, event) } }>Comprar</a>
+                                    href="#/payEvent"
+                                    onClick={() => { this.props.changeValue(item, event) }}>Comprar</a>
                             </div>
-                        </div> 
+                        </div>
                     );
                 })}
             </div>
